@@ -1,9 +1,10 @@
 import React from 'react';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { makeStyles} from '@material-ui/core/styles';
-import logo from "../../logo.png";
+import logo from '../../logo.png';
+import { CartWidget } from '../CartWidget/CartWidget'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles ({
     navBarStyle: {
       background: 'linear-gradient(45deg, #b83bed 30%, #551470 90%)',
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -29,6 +30,7 @@ export const NavBar = () => {
       <Tab label="Cuadernos" />
       <Tab label="Libretas" />
       <Tab label="Personalizados" />
+      <CartWidget />
     </Tabs>
   </AppBar>
 }
