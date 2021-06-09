@@ -4,10 +4,10 @@ import './App.css';
 
 const App = props => {
 
-  return <>
+  return <div className="appContainer">
     <NavBar/>
     <ItemListConteiner/>
-  </>
+  </div>
 }
 
 export default App;
