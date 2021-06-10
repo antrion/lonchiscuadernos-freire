@@ -38,7 +38,7 @@ export const ItemListConteiner = () => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <ItemCount stock="5" initial="1" /> 
+        <ItemCount stock={5} initial={1} /> 
       </CardActions>
     </Card>
   );
