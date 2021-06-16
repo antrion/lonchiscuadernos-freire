@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { makeStyles} from '@material-ui/core/styles';
 import logo from '../../logo.png';
-import { CartWidget } from '../CartWidget/CartWidget'
+import { CartWidget } from './components/CartWidget/CartWidget'
 
 const useStyles = makeStyles ({
     navBarStyle: {
