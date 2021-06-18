@@ -1,5 +1,5 @@
 import { NavBar } from './components/NavBar/NavBar';
-import { ItemListConteiner } from './screens/ItemListConteiner/ItemListConteiner';
+import { ItemListConteiner } from './screens/ItemListConteinar/ItemListConteinar';
 import './App.css';
 
 const App = props => {
