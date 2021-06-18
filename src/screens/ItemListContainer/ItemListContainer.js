@@ -14,7 +14,7 @@ const promiseProd = () => {
   })
 }
 
-export const ItemListConteiner = () => {
+export const ItemListContainer = () => {
 
   const [products,setProducts] = useState([]);
 

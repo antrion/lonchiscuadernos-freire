@@ -21,7 +21,7 @@ export const Item = props => {
 
     const classes = useStyles();
 
-    const { id, name, price, pictureUrl } = props;
+    const { id, title, price, pictureUrl } = props;
 
 return <Card>
 <CardActionArea className={classes.root}>
@@ -32,7 +32,7 @@ return <Card>
 />
 <CardContent>
   <Typography gutterBottom variant="h5" component="h2">
-    {name}
+    {title}
   </Typography>
   <Typography variant="body2" color="textSecondary" component="p">
     ${price}

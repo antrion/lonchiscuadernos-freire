@@ -1,12 +1,12 @@
 import { NavBar } from './components/NavBar/NavBar';
-import { ItemListConteiner } from './screens/ItemListConteinar/ItemListConteinar';
+import { ItemDetail } from './screens/ItemDetailContainer/components/ItemDetail/ItemDetail';
 import './App.css';
 
 const App = props => {
 
   return <div className="appContainer">
     <NavBar/>
-    <ItemListConteiner className="appContainer"/>
+    <ItemDetail/>
   </div>
 }
 
