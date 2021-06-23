@@ -16,7 +16,7 @@ export const ItemDetailContainer = () => {
     const mostrarItem = () => {
         getItems().then(res => {
             setItem(res);
-          });
+        });
     }
 
     useEffect(() => {
@@ -24,6 +24,6 @@ export const ItemDetailContainer = () => {
     },[])
     
     return <>
-    {item.map((product,i)=><ItemDetail index={i} {...item} />)}
+    {<ItemDetail item={item} />}
     </>    
 }

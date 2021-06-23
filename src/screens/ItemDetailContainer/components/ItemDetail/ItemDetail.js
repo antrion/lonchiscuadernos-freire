@@ -19,6 +19,7 @@ export const ItemDetail = props => {
 return <div className={classes.root}>
 <img src={pictureUrl} alt={title} ></img>
 <div><h1>{title}</h1></div>
+{console.log({price})};
 </div>
 
 }

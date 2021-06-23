@@ -1,13 +1,16 @@
 import { NavBar } from './components/NavBar/NavBar';
-import { ItemDetail } from './screens/ItemDetailContainer/components/ItemDetail/ItemDetail';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import {ItemListContainer} from './screens/ItemListContainer/ItemListContainer'
+import { Router } from './Router/Router';
+
 
 const App = props => {
 
-  return <div className="appContainer">
+  return <BrowserRouter>
     <NavBar/>
-    <ItemDetail/>
-  </div>
+    <Router/>
+  </BrowserRouter>
 }
 
 export default App;
