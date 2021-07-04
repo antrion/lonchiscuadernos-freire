@@ -6,10 +6,10 @@ import { CartWidget } from './components/CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
 
-const agendas= "agendas";
-const cuadernos= "cuadernos";
-const libretas= "libretas";
-const personalizados= "personalizados";
+const agendas= 'agendas';
+const cuadernos= 'cuadernos';
+const libretas= 'libretas';
+const personalizados= 'personalizados';
 
 const useStyles = makeStyles(() => ({
     navBarStyle: {

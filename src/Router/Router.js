@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ItemListContainer } from '../screens/ItemListContainer/ItemListContainer';
-import {Categorias} from './Categorias/Categorias'
+import { ItemDetailContainer } from '../screens/ItemDetailContainer/ItemDetailContainer'
 
 
 export const Router = () => {
@@ -10,8 +10,11 @@ export const Router = () => {
     <Route exact path="/">
         <ItemListContainer/>
     </Route>
-    <Route exact path="/category/:id">
-        <Categorias/>
+    <Route path="/category/:tipo">
+        <ItemListContainer/>
+    </Route>
+    <Route path="/item/:id">
+        <ItemDetailContainer/>
     </Route>
     </Switch>
 }

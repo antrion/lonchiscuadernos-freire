@@ -1,8 +1,7 @@
 import { NavBar } from './components/NavBar/NavBar';
 import { BrowserRouter } from 'react-router-dom';
+import { Router } from './Router/Router'
 import './App.css';
-import {ItemListContainer} from './screens/ItemListContainer/ItemListContainer'
-import { Router } from './Router/Router';
 
 
 const App = props => {

@@ -5,8 +5,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Card } from '@material-ui/core';
-import {ItemCount} from './components/ItemCount/ItemCount';
+import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+
+const id= 'id';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,7 +24,7 @@ export const Item = props => {
 
     const classes = useStyles();
 
-    const { id, title, price, pictureUrl } = props;
+    const { id, title, category, price, pictureUrl } = props;
 
 return <Card>
 <CardActionArea className={classes.root}>
@@ -40,8 +43,9 @@ return <Card>
 </CardContent>
 </CardActionArea>
 <CardActions>
-<ItemCount stock={5} initial={1} /> 
+<Button>
+  <Link to={'/item/'+id}>Comprar</Link>
+</Button>
 </CardActions>
 </Card>
-
 }
