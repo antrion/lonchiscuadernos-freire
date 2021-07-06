@@ -1,6 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { ItemCount } from '../../../ItemListContainer/components/Item/components/ItemCount/ItemCount'
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -26,7 +28,8 @@ return <>
 <img src={pictureUrl} alt={title} className={classes.media}></img>
 <div><h1>{title}</h1></div>
 <div><h2>${price}</h2></div>
-<ItemCount stock={5} initial={0} /> 
+<ItemCount stock={5} initial={0} />
+<Button onClick={() => <Link to={'/cart'}>Terminar Compra</Link>}>Agregar al Carrito</Button>
 </div>
 </> 
 }

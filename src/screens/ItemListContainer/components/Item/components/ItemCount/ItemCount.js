@@ -30,9 +30,7 @@ export const ItemCount = props => {
 
   return <div className={classes.root}>
       <div>
-        <Badge color="secondary" badgeContent={count}>
-          <ShoppingCartIcon />
-        </Badge>
+      <input tipe="text" value={count}/>
         <ButtonGroup>
           <Button
             aria-label="reduce"
@@ -52,5 +50,5 @@ export const ItemCount = props => {
           </Button>
         </ButtonGroup>
       </div>
-    </div>;
+    </div>
 }
