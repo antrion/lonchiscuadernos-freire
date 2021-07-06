@@ -4,10 +4,14 @@ import { ItemCount } from '../../../ItemListContainer/components/Item/components
 
 const useStyles = makeStyles({
     root: {
-      display: 'flex',
+      display: 'flex', justifyContent: 'center', alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
+      margin: '2em'
     },
     media: {
-      height: 140,
+      height: '25em',
     },
   });
 
@@ -15,13 +19,14 @@ export const ItemDetail = props => {
 
     const classes = useStyles();
 
-    const { id, title, price, pictureUrl } = props;
+    const { title, price, pictureUrl } = props;
 
-return <div className={classes.root}>
-<img src={pictureUrl} alt={title} ></img>
+return <> 
+<div className={classes.root}>
+<img src={pictureUrl} alt={title} className={classes.media}></img>
 <div><h1>{title}</h1></div>
-{console.log({price})}
-<ItemCount stock={5} initial={1} /> 
+<div><h2>${price}</h2></div>
+<ItemCount stock={5} initial={0} /> 
 </div>
-
+</> 
 }

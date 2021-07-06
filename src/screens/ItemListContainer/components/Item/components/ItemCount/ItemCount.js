@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -26,7 +26,7 @@ export const ItemCount = props => {
 
   const { stock, initial } = props;
   const classes = useStyles();
-  const [count, setCount] = React.useState(initial);
+  const [count, setCount] = useState(initial);
 
   return <div className={classes.root}>
       <div>
