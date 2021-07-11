@@ -41,8 +41,9 @@ return <Grid container spacing={2} className={classes.root}>
 <div>
 <div><h1>{title}</h1></div>
 <div><h2>${price}</h2></div>
-<ItemCount stock={5} initial={1} changeQuantity={handleQuantity} />
-<button>{onAdd(quantity)}</button>
+{quantity === 0 ?
+<ItemCount stock={5} initial={1} changeQuantity={handleQuantity} /> :
+<button>{onAdd(quantity)}</button>}
 </div>
 </Grid> 
 }
