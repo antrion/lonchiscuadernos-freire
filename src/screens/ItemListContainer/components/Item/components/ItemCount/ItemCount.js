@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Badge from '@material-ui/core/Badge';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +47,9 @@ export const ItemCount = props => {
             <AddIcon fontSize="small" />
           </Button>
         </ButtonGroup>
+      </div>
+      <div>
+        <Button disabled={count < 1} onClick={() => props.changeQuantity(count)} >Agregar al carrito</Button>
       </div>
     </div>
 }

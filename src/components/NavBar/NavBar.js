@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Tabs, Tab, Toolbar } from '@material-ui/core';
+import { AppBar, Tabs, Tab, Toolbar, Button } from '@material-ui/core';
 import { makeStyles} from '@material-ui/core/styles';
 import logo from '../../logo.png';
 import { CartWidget } from './components/CartWidget/CartWidget';
@@ -34,10 +34,10 @@ export const NavBar = () => {
     <Toolbar>
     <Link to={'/'}> <img src={logo} alt="logo" className={classes.logo} /></Link>
       <Tabs>
-      <Link to={'/category/'+agendas}>Agendas</Link>
-      <Link to={'/category/'+cuadernos}>Cuadernos</Link>
-      <Link to={'/category/'+libretas}>Libretas</Link>
-      <Link to={'/category/'+personalizados}>Personalizados</Link>
+      <Button><Link to={'/category/'+agendas}>Agendas</Link></Button>
+      <Button><Link to={'/category/'+cuadernos}>Cuadernos</Link></Button>
+      <Button><Link to={'/category/'+libretas}>Libretas</Link></Button>
+      <Button><Link to={'/category/'+personalizados}>Personalizados</Link></Button>
       <CartWidget />
     </Tabs>
     </Toolbar>

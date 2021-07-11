@@ -1,15 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { ItemCount } from '../../../ItemListContainer/components/Item/components/ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
+      justifyContent: 'center', 
+      alignItems: 'center',
       width: '100%',
       height: '100%',
-      flexDirection: 'column',
       margin: '2em'
     },
     media: {
@@ -23,13 +24,25 @@ export const ItemDetail = props => {
 
     const { title, price, pictureUrl } = props;
 
-return <> 
-<div className={classes.root}>
+    const [quantity,setQuantity] = useState(0);
+
+    function onAdd (quantityToAdd) {
+      if (quantityToAdd > 0) {
+        return <Link to={'/cart'}>Terminar tu compra</Link>
+      }
+    };
+
+const handleQuantity = value => setQuantity(value);
+
+return <Grid container spacing={2} className={classes.root}>
+<div>
 <img src={pictureUrl} alt={title} className={classes.media}></img>
+</div>
+<div>
 <div><h1>{title}</h1></div>
 <div><h2>${price}</h2></div>
-<ItemCount stock={5} initial={0} />
-<Button onClick={() => <Link to={'/cart'}>Terminar Compra</Link>}>Agregar al Carrito</Button>
+<ItemCount stock={5} initial={1} changeQuantity={handleQuantity} />
+<button>{onAdd(quantity)}</button>
 </div>
-</> 
+</Grid> 
 }
