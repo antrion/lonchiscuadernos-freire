@@ -127,14 +127,12 @@ export const ItemDetailContainer = () => {
     },[])
   
     useEffect(() => { }, [id])
-
-    const porId = items.find((item) => item.id === id);
     
     return <>
     {items.length === 0 ? (
     <CircularProgress color="secondary" />
     ) : (<Grid>
-      <ItemDetail title={items[id-1].title} price={items[id-1].price} pictureUrl={items[id-1].pictureUrl}/>
+      <ItemDetail {...items[id-1]} />
   </Grid>)}  
     </>    
 }
