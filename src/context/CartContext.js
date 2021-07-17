@@ -4,47 +4,51 @@ export const CardContext = createContext([]);
 
 export const CartComponentContext = props => {
 
-    const [items, setItem] = useState([]);
+    const [items,setItems] = useState([]);
 
 
-    function isInCart(id) { 
-        const encontrado = items.find(item => item.id === id);
-        return (encontrado > -1)
+    function isInCart(id) {
+        const encontrado = items.filter((item) => item.item.id === id);
+        return (encontrado.length !== 0)
     }
+
+    function getIndex(id) {
+        return items.findIndex(item => item.item.id === id);
+      }
 
     function addQuantity(id, quantityToAdd) {
-        const newItems = items.map((item) => {
-            if (item.item.id === id) {
-                const updatedItem = {
-                    ...item,
-                    quantity: quantityToAdd,
-                };
-            return updatedItem;
-            }
-            return item;
-        });
-        setItem(newItems);
+        if (getStock(id) === 0) {
+            alert("No hay stock disponible")
+        }else {
+            items[getIndex(id)].quantity =  items[getIndex(id)].quantity + quantityToAdd
+            items[getIndex(id)].stock = items[getIndex(id)].stock - quantityToAdd
+        }
     }
 
-    const addItem = (item, quantity) => {
+    function getStock(id) {
+        return !(getIndex(id) === -1) ? items[getIndex(id)].stock : 5
+    }
+
+    const addItem = (item, quantity, stock) => {
         console.log(items)
-        isInCart(item.id)? addQuantity(item.id, quantity ) : items.push({item,quantity})
+        isInCart(item.id)? addQuantity(item.id, quantity ) : setItems([...items, {item,quantity,stock}])
     }
 
-    const removeItem = (id) => {
-        
-        const newItems = items.filter((item) => item.id !== id);
-        setItem(newItems);
-
+    const removeItem = (id) => {        
+        const newItems = items.filter((item) => item.item.id !== id);
+        setItems(newItems);
     }
 
     const clear = () => {
-        setItem([])
+        setItems([])
     }
 
-    return (<CardContext.Provider value={ {addItem, removeItem, clear} }>
+    const cantItems = items.reduce((total, currentValue) => total = total + currentValue.quantity,0)
+
+    const precioTotal = items.reduce((total, currentValue) => total = total + currentValue.item.price*currentValue.quantity,0)
+
+    return (<CardContext.Provider value={ {items, addItem, removeItem, clear, cantItems, precioTotal, getStock} }>
     {props.children}
-    {console.log(items)}
     </CardContext.Provider>)
 
 }

@@ -49,7 +49,9 @@ export const ItemCount = props => {
         </ButtonGroup>
       </div>
       <div>
-        <Button disabled={count < 1} onClick={() => props.changeQuantity(count)} >Agregar al carrito</Button>
+        {stock === 0 ? 
+        <h4>Sin Stock</h4> : 
+        <Button disabled={count < 1} onClick={() => props.changeQuantity(count)} >Agregar al carrito</Button>}
       </div>
     </div>
 }

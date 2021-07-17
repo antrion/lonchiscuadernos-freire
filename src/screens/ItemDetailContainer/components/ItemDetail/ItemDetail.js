@@ -27,14 +27,13 @@ export const ItemDetail = props => {
 
     const [quantity,setQuantity] = useState(0);
 
-    const {addItem} = useContext(CardContext);
+    const {items, addItem, getStock} = useContext(CardContext);
 
     const onAdd = (quantity) => {
-          addItem(props, quantity)
-          return <Link to={'/cart'}>Terminar tu compra</Link>
+        return <Link to={'/cart'}>Terminar tu compra</Link>
     };
 
-const handleQuantity = value => setQuantity(value);
+const handleQuantity = value => {setQuantity(value); addItem(props,value,(5-value))};
 
 return <Grid container spacing={2} className={classes.root}>
 <div>
@@ -44,7 +43,7 @@ return <Grid container spacing={2} className={classes.root}>
 <div><h1>{title}</h1></div>
 <div><h2>${price}</h2></div>
 {quantity === 0 ?
-<ItemCount stock={5} initial={1} changeQuantity={handleQuantity} /> :
+<ItemCount stock={getStock(id)} initial={1} changeQuantity={handleQuantity}/> :
 <Button>{onAdd(quantity)}</Button>}
 </div>
 </Grid> 
