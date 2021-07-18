@@ -20,7 +20,7 @@ export const Cart = () => {
     :
     <>
     <ul>
-        {items.map((item,i) => <li index={i}>{item.item.title} x {item.quantity} <Button onClick={()=>removeItem(item.item.id)}><DeleteIcon fontSize="small" /></Button></li>)}
+        {items.map((item,i) => <li key={i}>{item.item.title} x {item.quantity} <Button onClick={()=>removeItem(item.item.id)}><DeleteIcon fontSize="small" /></Button></li>)}
     </ul>
     <h3>Total: ${precioTotal}</h3>
     {console.log(items)}
