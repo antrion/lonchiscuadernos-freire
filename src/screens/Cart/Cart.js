@@ -74,6 +74,8 @@ export const Cart = () => {
         const orderItems = items.map((item) => [addOrder(item.item.id, item.item.title, item.item.price)])
         setCart(orderItems)
         saveOrder()
+        clear()
+        setFinish(false)
     }
 
     const newUserInfo = e => {
@@ -113,7 +115,6 @@ export const Cart = () => {
         disabled={name === '' || phone === '' || email === ''}
         type="submit"> Finalizar</Button> :
         <h4>Se generó la orden {orderId}</h4>}
-        {console.log(userInfo)}
     </form>
     </CardContent>
   </Card>}
