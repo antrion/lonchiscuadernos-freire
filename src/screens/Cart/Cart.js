@@ -55,15 +55,6 @@ export const Cart = () => {
     });
     }
 
-    const addOrder = (id,title,price) => {
-        const Order = {
-            id: id,
-            title: title,
-            price: price,
-        }
-        cart.push(Order)
-    }
-
     const addNewUserInfo = newUserInfo => {
         const buyer = {
             name: name,
@@ -71,7 +62,7 @@ export const Cart = () => {
             email: email,
         }
         setUserInfo(buyer)
-        const orderItems = items.map((item) => [addOrder(item.item.id, item.item.title, item.item.price)])
+        const orderItems = items.map((item) => ({id: item.item.id, title: item.item.title, price: item.item.price}));
         setCart(orderItems)
         saveOrder()
         clear()
@@ -115,6 +106,7 @@ export const Cart = () => {
         disabled={name === '' || phone === '' || email === ''}
         type="submit"> Finalizar</Button> :
         <h4>Se generó la orden {orderId}</h4>}
+        {console.log(orderId)}
     </form>
     </CardContent>
   </Card>}
