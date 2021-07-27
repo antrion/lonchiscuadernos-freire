@@ -20,8 +20,10 @@ export const CartComponentContext = props => {
         if (getStock(id) === 0) {
             alert("No hay stock disponible")
         }else {
-            items[getIndex(id)].quantity =  items[getIndex(id)].quantity + quantityToAdd
-            items[getIndex(id)].stock = items[getIndex(id)].stock - quantityToAdd
+            const itemsTemp = items
+            itemsTemp[getIndex(id)].quantity =  itemsTemp[getIndex(id)].quantity + quantityToAdd
+            itemsTemp[getIndex(id)].stock = itemsTemp[getIndex(id)].stock - quantityToAdd
+            setItems(itemsTemp)
         }
     }
 
