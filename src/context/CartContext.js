@@ -21,7 +21,7 @@ export const CartComponentContext = props => {
             alert("No hay stock disponible")
         }else {
             const itemsTemp = items
-            itemsTemp[getIndex(id)].quantity =  itemsTemp[getIndex(id)].quantity + quantityToAdd
+            itemsTemp[getIndex(id)].quantity = itemsTemp[getIndex(id)].quantity + quantityToAdd
             itemsTemp[getIndex(id)].stock = itemsTemp[getIndex(id)].stock - quantityToAdd
             setItems(itemsTemp)
         }
@@ -45,9 +45,9 @@ export const CartComponentContext = props => {
         setItems([])
     }
 
-    const cantItems = items.reduce((total, currentValue) => total = total + currentValue.quantity,0)
+    let cantItems = items.reduce((total, currentValue) => total = total + currentValue.quantity,0)
 
-    const precioTotal = items.reduce((total, currentValue) => total = total + currentValue.item.price*currentValue.quantity,0)
+    let precioTotal = items.reduce((total, currentValue) => total = total + currentValue.item.price*currentValue.quantity,0)
 
     return (<CardContext.Provider value={ {items, addItem, removeItem, clear, cantItems, precioTotal, getStock} }>
     {props.children}
