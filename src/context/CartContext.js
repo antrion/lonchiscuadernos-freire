@@ -45,9 +45,23 @@ export const CartComponentContext = props => {
         setItems([])
     }
 
-    let cantItems = items.reduce((total, currentValue) => total = total + currentValue.quantity,0)
+    const sumarItems = () => { 
+        var total = 0;
+        for (var i = 0; i < items.length; i++) {
+        total += items[i].quantity }
+        return total
+    }
 
-    let precioTotal = items.reduce((total, currentValue) => total = total + currentValue.item.price*currentValue.quantity,0)
+    const sumarPrecio = () => { 
+        var total = 0;
+        for (var i = 0; i < items.length; i++) {
+        total += items[i].item.price*items[i].quantity }
+        return total
+    }
+
+    let cantItems = sumarItems();
+
+    let precioTotal = sumarPrecio()
 
     return (<CardContext.Provider value={ {items, addItem, removeItem, clear, cantItems, precioTotal, getStock} }>
     {props.children}
